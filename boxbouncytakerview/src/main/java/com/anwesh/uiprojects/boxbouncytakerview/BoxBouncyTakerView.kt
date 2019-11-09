@@ -186,4 +186,26 @@ class BoxBouncyTakerView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BoxBouncyTakerView) {
+
+        private val animator : Animator = Animator(view)
+        private val bbt : BoxBouncyTaker = BoxBouncyTaker(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            bbt.draw(canvas, paint)
+            animator.animate {
+                bbt.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bbt.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
