@@ -209,4 +209,13 @@ class BoxBouncyTakerView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BoxBouncyTakerView {
+            val view : BoxBouncyTakerView = BoxBouncyTakerView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
