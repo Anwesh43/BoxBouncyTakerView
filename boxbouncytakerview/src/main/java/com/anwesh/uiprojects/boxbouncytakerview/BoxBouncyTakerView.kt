@@ -30,7 +30,7 @@ fun Float.cosify() : Float = Math.sin(Math.PI / 2 + (this) * (Math.PI / 2)).toFl
 
 fun Canvas.drawBoxTaker(size : Float, w : Float, scale : Float, paint : Paint) {
     val sf : Float = scale.sinify()
-    val sc : Float = scale.divideScale(1, 2).sinify()
+    val sc : Float = scale.divideScale(1, 2).cosify()
     val rSize : Float = size / boxFactor
     save()
     translate((w - size) * sf, 0f)
